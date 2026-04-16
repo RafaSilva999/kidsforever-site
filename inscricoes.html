@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrições Online - AKIDS</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <style>
+        /* --- TEMA --- */
+        :root {
+            --cor-primaria-otl: #00aeb3;
+            --cor-fundo-hero: #e6f9fa;
+            --cor-texto-escuro: #333333;
+        }
+
+        .bg-primary { background-color: var(--cor-primaria-otl) !important; }
+        .text-primary { color: var(--cor-primaria-otl) !important; }
+        .btn-primary {
+            background-color: var(--cor-primaria-otl) !important;
+            border-color: var(--cor-primaria-otl) !important;
+            font-weight: bold;
+        }
+
+        /* Cartões de Inscrição */
+        .card-inscricao {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+            border-top: 5px solid transparent;
+        }
+        .card-inscricao:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .btn-inscricoes {
+            background-color: white !important;
+            color: #008c91 !important;
+            padding: 8px 16px !important;
+            border-radius: 20px !important;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* Cores específicas para cada tipo */
+        .card-estudo { border-color: var(--cor-primaria-otl); }
+        .card-natal { border-color: #dc3545; }   /* Vermelho */
+        .card-pascoa { border-color: #ffc107; }  /* Amarelo */
+        .card-verao { border-color: #fd7e14; }   /* Laranja */
+
+        .btn-google {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-google:hover {
+            background-color: #f8f9fa;
+            border-color: #ccc;
+        }
+        .fa-google-drive { color: #198754; } /* Verde do Google Forms */
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Logo Kids Forever" height="40" class="me-2">
+                AKIDS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="galeria.html">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link active btn-inscricoes fw-bold" href="inscricoes.html">Inscrições</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 80px;" class="py-5 text-center bg-light">
+        <div class="container">
+            <h1 class="fw-bold text-primary">Processos de Inscrição</h1>
+            <p class="lead text-secondary">Selecione a atividade pretendida para aceder ao formulário.</p>
+        </div>
+    </div>
+
+    <div class="container py-5 flex-grow-1">
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8">
+                <div class="card card-inscricao card-estudo p-4 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-book-reader fa-3x text-primary mb-3"></i>
+                        <h2 class="fw-bold mb-3">Apoio ao Estudo & Explicações</h2>
+                        <p class="text-muted mb-4">Inscrições para o ano letivo corrente. Inclui acompanhamento aos TPC's, preparação para testes e transporte escolar.</p>
+                        
+                        <a href="https://forms.gle/T9KkQFHGoWJULNEHA" target="_blank" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm">
+                            <i class="fab fa-google-drive me-2"></i> Preencher Ficha de Inscrição
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-4">
+            <h3 class="fw-bold text-secondary">Pausas Letivas e Férias</h3>
+            <p class="small text-muted">Selecione a época específica:</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!--<div class="col-md-4">
+                <div class="card card-inscricao card-natal p-4 text-center h-100">
+                    <div class="mb-3 text-danger"><i class="fas fa-holly-berry fa-3x"></i></div>
+                    <h4 class="fw-bold">Férias de Natal</h4>
+                    <p class="small text-muted">Atividades para as duas semanas de pausa letiva em Dezembro/Janeiro.</p>
+                    
+                    <a href="LINK_DO_GOOGLE_FORMS_NATAL_AQUI" target="_blank" class="btn btn-outline-danger w-100 mt-auto">
+                        Inscrever no Natal
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-inscricao card-pascoa p-4 text-center h-100">
+                    <div class="mb-3 text-warning"><i class="fas fa-egg fa-3x"></i></div>
+                    <h4 class="fw-bold">Férias da Páscoa</h4>
+                    <p class="small text-muted">Duas semanas de diversão na pausa da Páscoa.</p>
+                    
+                    <a href="LINK_DO_GOOGLE_FORMS_PASCOA_AQUI" target="_blank" class="btn btn-outline-warning text-dark w-100 mt-auto">
+                        Inscrever na Páscoa
+                    </a>
+                </div>
+            </div> -->
+
+            <div class="col-md-4">
+                <div class="card card-inscricao card-verao p-4 text-center h-100">
+                    <div class="mb-3 text-warning" style="color: #fd7e14 !important;"><i class="fas fa-sun fa-3x"></i></div>
+                    <h4 class="fw-bold">Férias de Verão</h4>
+                    <p class="small text-muted">O nosso maior programa! Junho, Julho, Agosto e Setembro.</p>
+                    
+                    <a href="LINK_DO_GOOGLE_FORMS_VERAO_AQUI" target="_blank" class="btn btn-outline-dark w-100 mt-auto" style="border-color: #fd7e14; color: #fd7e14;">
+                        Inscrever no Verão
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-5 text-center">
+            <p class="text-muted small">
+                Tem dúvidas no preenchimento? <a href="index.html#contactos" class="fw-bold text-primary">Fale connosco no WhatsApp</a>.
+            </p>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <p class="m-0 small">&copy; 2026 AKIDS. Criado com carinho.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

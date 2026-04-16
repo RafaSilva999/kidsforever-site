@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKIDS - OTL e Centro de Estudos</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <style>
+        /* --- TEMA CIANO / TURQUESA --- */
+        :root {
+            /* Cor principal: Um azul esverdeado (Turquesa) */
+            --cor-primaria-otl: #00aeb3;
+            /* Cor de fundo suave (um ciano muito clarinho) */
+            --cor-fundo-hero: #e6f9fa;
+            --cor-texto-escuro: #333333;
+        }
+
+        /* OVERRIDES DO BOOTSTRAP (Para aplicar as tuas cores) */
+        
+        /* Fundo dos botões e navbar */
+        .bg-primary {
+            background-color: var(--cor-primaria-otl) !important;
+        }
+
+        /* Cor dos textos e ícones principais */
+        .text-primary {
+            color: var(--cor-primaria-otl) !important;
+        }
+
+        /* Botões */
+        .btn-primary {
+            background-color: var(--cor-primaria-otl) !important;
+            border-color: var(--cor-primaria-otl) !important;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #008c91 !important; /* Um pouco mais escuro ao passar o rato */
+            border-color: #008c91 !important;
+        }
+        .btn-inscricoes {
+            background-color: white !important;
+            color: #008c91 !important;
+            padding: 8px 16px !important;
+            border-radius: 20px !important;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* Ícones de serviços com outras cores para dar vida (mantive o verde e laranja originais) */
+        .text-success { color: #28a745 !important; }
+        .text-warning { color: #ffc107 !important; }
+
+        /* ESTILO DO LAYOUT */
+        .hero-section {
+            background-color: var(--cor-fundo-hero);
+            padding: 100px 0;
+            border-bottom: 5px solid var(--cor-primaria-otl); /* Linha decorativa no fundo do hero */
+        }
+        
+        .card-service {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--cor-primaria-otl);
+            background: white;
+        }
+        .card-service:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Navbar ajustada */
+        .navbar-brand img {
+            max-height: 50px; /* Garante que o logo não fica gigante */
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Logo Kids Forever" class="me-2">
+                AKIDS
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="galeria.html">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link btn-inscricoes fw-bold" href="inscricoes.html">Inscrições</a></li>
+                    <!--<li class="nav-item"><a class="nav-link fw-bold text-warning" href="inscricoes.html">Inscrições</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center mt-5">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold text-primary">Bem-vindo ao AKIDS</h1>
+            <h1 class="display-4 fw-bold text-primary">📖<strong>A</strong>ssociação <strong>K</strong>lub de <strong>I</strong>nfância <strong>D</strong>esporto e <strong>S</strong>abedoria💡</h1>
+            <p class="lead text-secondary mb-4">O melhor acompanhamento escolar e tempos livres para o seu filho.</p>
+            <a href="#contactos" class="btn btn-primary btn-lg rounded-pill px-5 shadow">
+                Fale Connosco
+            </a>
+        </div>
+    </header>
+
+    <section id="servicos" class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary">O Que Oferecemos</h2>
+                <p class="text-muted">Um espaço seguro para aprender e brincar.</p>
+            </div>
+
+            <div class="row g-4">
+                
+                <div class="col-md-4">
+                    <div class="card card-service h-100 p-4 text-center">
+                        <div class="mb-3 text-primary"><i class="fas fa-book-reader fa-3x"></i></div>
+                        <h4 class="card-title fw-bold">Apoio ao Estudo</h4>
+                        <p class="card-text text-secondary">Acompanhamento nos TPC's e preparação para testes e Exames, do 1º ao 9º ano, com professores dedicados.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card card-service h-100 p-4 text-center">
+                        <div class="mb-3 text-success"><i class="fas fa-shapes fa-3x"></i></div>
+                        <h4 class="card-title fw-bold">Ocupações de Tempos Livres</h4>
+                        <p class="card-text text-secondary">Jogos, Excursões, Workshops e muita diversão para as férias e pausas letivas.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card card-service h-100 p-4 text-center">
+                        <div class="mb-3 text-warning"><i class="fas fa-bus fa-3x"></i></div>
+                        <h4 class="card-title fw-bold">Transporte Escolar</h4>
+                        <p class="card-text text-secondary">Recolha nas escolas próximas com segurança e pontualidade garantida.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contactos" class="py-5" style="background-color: var(--cor-fundo-hero);">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <h2 class="fw-bold text-primary mb-4">Visite-nos</h2>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-map-marker-alt text-danger fa-lg me-3"></i>
+                        <span>Rua João de Deus 57A, 2950-731 Quinta do Anjo</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-phone text-success fa-lg me-3"></i>
+                        <span>+351 917 332 361 ou +351 928 024 286</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-envelope text-primary fa-lg me-3"></i>
+                        <a href="mailto:kidsforeverquintadoanjo@gmail.com" class="text-decoration-none text-dark">
+                            kidsforeverquintadoanjo@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-white p-4 rounded shadow-sm text-center">
+                        <h5 class="fw-bold mb-4 text-primary">Fale Connosco Agora</h5>
+                        <p class="text-muted mb-4">Escolha a forma mais prática para si:</p>
+        
+                        <div class="d-grid gap-3">
+            
+                            <a href="tel:+351917332361" class="btn btn-outline-success btn-lg">
+                                <i class="fas fa-phone-alt me-2"></i> Ligar (917 332 361)
+                            </a>
+
+                            <a href="https://wa.me/351917332361" target="_blank" class="btn btn-outline-success btn-lg">
+                                <i class="fab fa-whatsapp me-2"></i> Mensagem WhatsApp
+                            </a>
+
+                            <a href="mailto:kidsforeverquintadoanjo@gmail.com" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i> Enviar Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="m-0 small">&copy; 2026 AKIDS. Criado com carinho.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
