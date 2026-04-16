@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Fotos - AKIDS</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <style>
+        /* --- TEMA CIANO / TURQUESA --- */
+        :root {
+            --cor-primaria-otl: #00aeb3;
+            --cor-fundo-hero: #e6f9fa;
+            --cor-texto-escuro: #333333;
+        }
+
+        .bg-primary { background-color: var(--cor-primaria-otl) !important; }
+        .text-primary { color: var(--cor-primaria-otl) !important; }
+        .btn-primary {
+            background-color: var(--cor-primaria-otl) !important;
+            border-color: var(--cor-primaria-otl) !important;
+            font-weight: bold;
+        }
+        .btn-inscricoes {
+            background-color: white !important;
+            color: #008c91 !important;
+            padding: 8px 16px !important;
+            border-radius: 20px !important;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        /* Estilo para as Pastas/Cartões dos Eventos */
+        .folder-card {
+            border: 2px dashed #ddd;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+        .folder-card:hover {
+            border-color: var(--cor-primaria-otl);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Estilo das Fotos dentro do Modal */
+        .foto-galeria {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .foto-galeria:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Logo Kids Forever" height="40" class="me-2">
+                AKIDS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="galeria.html">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link btn-inscricoes fw-bold" href="inscricoes.html">Inscrições</a></li>
+                    <!--<li class="nav-item"><a class="nav-link fw-bold text-warning" href="inscricoes.html">Inscrições</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 80px;" class="py-5 text-center bg-light">
+        <div class="container">
+            <h1 class="fw-bold text-primary">Galeria de Recordações</h1>
+            <p class="lead text-secondary">Os melhores momentos das nossas aventuras.</p>
+        </div>
+    </div>
+
+    <div class="container py-4 flex-grow-1">
+        
+        <div class="accordion" id="accordionAnos">
+            
+            <div class="accordion-item border-0 shadow-sm mb-3 rounded">
+                <h2 class="accordion-header" id="heading2026">
+                    <button class="accordion-button collapsed fw-bold text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2026">
+                        <i class="far fa-calendar-alt me-2"></i> Ano 2026
+                    </button>
+                </h2>
+                <div id="collapse2026" class="accordion-collapse collapse" data-bs-parent="#accordionAnos">
+                    <div class="accordion-body bg-light">
+                        <div class="row g-4">
+                            <div class="col-md-4 col-6">
+                                <div class="folder-card p-4 text-center h-100" data-bs-toggle="modal" data-bs-target="#modalVerao2026">
+                                    <i class="fas fa-sun fa-3x text-warning mb-3"></i>
+                                    <h5 class="fw-bold">Verão 2026</h5>
+                                    <p class="small text-muted mb-0">Junho a Setembro</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 shadow-sm mb-3 rounded">
+                <h2 class="accordion-header" id="heading2025">
+                    <button class="accordion-button fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2025">
+                        <i class="far fa-calendar-check me-2"></i>Ano 2025
+                    </button>
+                </h2>
+                <div id="collapse2025" class="accordion-collapse collapse show" data-bs-parent="#accordionAnos">
+                    <div class="accordion-body bg-light">
+                        <div class="row g-4">
+                            
+                            <div class="col-md-4 col-6">
+                                <div class="folder-card p-4 text-center h-100" data-bs-toggle="modal" data-bs-target="#modalNatal2025">
+                                    <i class="fas fa-holly-berry fa-3x text-danger mb-3"></i>
+                                    <h5 class="fw-bold">Férias de Natal</h5>
+                                    <p class="small text-muted mb-0">Dezembro 2025</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-6">
+                                <div class="folder-card p-4 text-center h-100" data-bs-toggle="modal" data-bs-target="#modalVerao2025">
+                                    <i class="fas fa-sun fa-3x text-warning mb-3"></i>
+                                    <h5 class="fw-bold">Férias de Verão</h5>
+                                    <p class="small text-muted mb-0">Junho a Setembro</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalNatal2025" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"> 
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-danger"><i class="fas fa-holly-berry me-2"></i>Fotos do Natal 2025</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3" id="galeria-natal-2025"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalVerao2025" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-warning"><i class="fas fa-sun me-2"></i>Verão 2025</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3" id="galeria-verao-2025"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalVerao2026" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <p class="text-muted">Ainda não há fotos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <p class="m-0 small">&copy; 2026 AKIDS. Criado com carinho.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /**
+         * Gera fotos automaticamente.
+         */
+        function carregarFotos(idContainer, pastaENome, quantidade) {
+            const container = document.getElementById(idContainer);
+            if (!container) return;
+
+            let html = '';
+            for (let i = 1; i <= quantidade; i++) {
+                // Gera: images/pasta/nome (1).jpg
+                html += `
+                    <div class="col-md-4 col-6">
+                        <img src="images/${pastaENome} (${i}).jpg" class="foto-galeria" alt="Foto ${i}" loading="lazy">
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+        }
+
+        // ==========================================
+        // CONFIGURAÇÃO DAS FOTOS AQUI:
+        // ==========================================
+        
+        // 1. NATAL 2025 (39 fotos)
+        // Procura em: images/natal2025/natal (1).jpg ...
+        carregarFotos('galeria-natal-2025', 'natal2025/natal', 39);
+
+        // 2. VERÃO 2025 (62 fotos)
+        // Procura em: images/verao2025/verao (1).jpg ...
+        carregarFotos('galeria-verao-2025', 'verao2025/verao', 51);
+
+    </script>
+</body>
+</html>
