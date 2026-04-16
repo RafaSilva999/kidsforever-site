@@ -113,7 +113,15 @@
                                     <p class="small text-muted mb-0">Junho a Setembro</p>
                                 </div>
                             </div>
+                            <div class="col-md-4 col-6">
+                                <div class="folder-card p-4 text-center h-100" data-bs-toggle="modal" data-bs-target="#modalPascoa2026">
+                                    <i class="fas fa-egg fa-3x text-primary mb-3"></i>
+                                    <h5 class="fw-bold">Páscoa 2026</h5>
+                                    <p class="small text-muted mb-0">Abril</p>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -153,7 +161,7 @@
     </div>
 
     <div class="modal fade" id="modalNatal2025" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"> 
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header border-0">
                     <h5 class="modal-title fw-bold text-danger"><i class="fas fa-holly-berry me-2"></i>Fotos do Natal 2025</h5>
@@ -185,6 +193,20 @@
             <div class="modal-content">
                 <div class="modal-body text-center py-5">
                     <p class="text-muted">Ainda não há fotos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPascoa2026" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-primary"><i class="fas fa-egg me-2"></i>Fotos da Páscoa 2026</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3" id="galeria-pascoa-2026"></div>
                 </div>
             </div>
         </div>
@@ -227,6 +249,10 @@
         // 2. VERÃO 2025 (62 fotos)
         // Procura em: images/verao2025/verao (1).jpg ...
         carregarFotos('galeria-verao-2025', 'verao2025/verao', 51);
+
+        // 3. PASCOA 2026 (0 fotos por enquanto)
+        // Procura em: images/pascoa2026/pascoa (1).jpg ...
+        carregarFotos('galeria-pascoa-2026', 'pascoa2026/pascoa', 27);
 
     </script>
 </body>
