@@ -78,6 +78,80 @@
             max-height: 50px; /* Garante que o logo não fica gigante */
             width: auto;
         }
+
+        /* Rodapé */
+        /* Restaura a hero-section para o fundo azul base e aumenta o padding inferior */
+        .hero-section {
+            background-color: var(--cor-fundo-hero);
+            padding: 120px 0 60px 0;
+            border-bottom: 5px solid var(--cor-primaria-otl);
+            position: relative;
+        }
+
+        /* --- CARROSSEL HORIZONTAL --- */
+        .hero-gallery-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto 0; /* Espaço entre o botão e a galeria */
+            display: flex;
+            align-items: center;
+            padding: 0 50px; /* Espaço para as setas não ficarem em cima das fotos */
+        }
+
+        .hero-gallery-track {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 5px;
+            /* Esconder a barra de scroll nativa para ficar limpo */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE/Edge */
+        }
+        .hero-gallery-track::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        /* A SOLUÇÃO TÉCNICA PARA FOTOS DE TAMANHOS DIFERENTES */
+        .hero-gallery-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover; /* Obriga a foto a preencher a caixa de 160x160 sem esmagar */
+            border-radius: 12px;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* Impede que o flexbox esmague as imagens */
+            transition: transform 0.2s ease;
+            background-color: #ddd; /* Placeholder enquanto carrega */
+        }
+        .hero-gallery-img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Botões das setas */
+        .gallery-btn {
+            position: absolute;
+            background: var(--cor-primaria-otl);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+        }
+        .gallery-btn:hover {
+            background: #008c91;
+        }
+        .gallery-btn-left { left: 0; }
+        .gallery-btn-right { right: 0; }
     </style>
 </head>
 <body>
@@ -107,12 +181,28 @@
 
     <header class="hero-section text-center mt-5">
         <div class="container py-4">
+            <!-- Textos originais restaurados -->
             <h1 class="display-4 fw-bold text-primary">Bem-vindo ao AKIDS</h1>
             <h1 class="display-4 fw-bold text-primary">📖<strong>A</strong>ssociação <strong>K</strong>lub de <strong>I</strong>nfância <strong>D</strong>esporto e <strong>S</strong>abedoria💡</h1>
             <p class="lead text-secondary mb-4">O melhor acompanhamento escolar e tempos livres para o seu filho.</p>
             <a href="#contactos" class="btn btn-primary btn-lg rounded-pill px-5 shadow">
                 Fale Connosco
             </a>
+
+            <!-- Novo bloco do Carrossel -->
+            <div class="hero-gallery-wrapper">
+                <button class="gallery-btn gallery-btn-left" id="scrollLeft">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="hero-gallery-track" id="galleryTrack">
+                    <!-- O JavaScript vai injetar as tags <img> aqui dentro -->
+                </div>
+                
+                <button class="gallery-btn gallery-btn-right" id="scrollRight">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -207,5 +297,65 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Configuração dos diretórios
+            const pastas = [
+                { caminho: 'images/pascoa2026/', prefixo: 'pascoa', maxFotos: 15 },
+                { caminho: 'images/verao2025/', prefixo: 'verao', maxFotos: 51 },
+                { caminho: 'images/natal2025/', prefixo: 'natal', maxFotos: 39 }
+            ];
+
+            let todasImagens = [];
+
+            // 2. Gerar array de caminhos
+            pastas.forEach(pasta => {
+                for (let i = 1; i <= pasta.maxFotos; i++) {
+                    todasImagens.push(`${pasta.caminho}${pasta.prefixo} (${i}).jpg`);
+                }
+            });
+
+            // 3. Shuffle (Fisher-Yates)
+            function baralharArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            // 4. Selecionar 15 fotos aleatórias para o carrossel (aumentei para preencher melhor a calha)
+            const imagensSelecionadas = baralharArray([...todasImagens]).slice(0, 40); // Aumentei para 40 para garantir que temos fotos suficientes mesmo com erros de carregamento
+            const track = document.getElementById('galleryTrack');
+
+            if (!track || imagensSelecionadas.length === 0) return;
+
+            // 5. Injetar imagens no DOM com gestão de erros
+            imagensSelecionadas.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = 'Galeria AKIDS';
+                img.className = 'hero-gallery-img';
+                
+                // Se a foto não existir na pasta, destrói o elemento HTML silenciosamente
+                img.onerror = () => img.remove();
+                
+                track.appendChild(img);
+            });
+
+            // 6. Motor de Scroll Horizontal
+            const btnLeft = document.getElementById('scrollLeft');
+            const btnRight = document.getElementById('scrollRight');
+            const scrollAmount = 350; // Quantidade de pixeis deslocada por clique
+
+            btnLeft.addEventListener('click', () => {
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            btnRight.addEventListener('click', () => {
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
