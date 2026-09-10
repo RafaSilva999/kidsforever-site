@@ -189,10 +189,14 @@
     </div>
 
     <div class="modal fade" id="modalVerao2026" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-body text-center py-5">
-                    <p class="text-muted">Ainda não há fotos.</p>
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-warning"><i class="fas fa-sun me-2"></i> Fotos do Verão 2026</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3" id="galeria-verao-2026"></div>
                 </div>
             </div>
         </div>
@@ -250,9 +254,13 @@
         // Procura em: images/verao2025/verao (1).jpg ...
         carregarFotos('galeria-verao-2025', 'verao2025/verao', 51);
 
-        // 3. PASCOA 2026 (0 fotos por enquanto)
+        // 3. PASCOA 2026 (27 fotos por enquanto)
         // Procura em: images/pascoa2026/pascoa (1).jpg ...
         carregarFotos('galeria-pascoa-2026', 'pascoa2026/pascoa', 27);
+
+        // 4. VERÃO 2026 (58 fotos por enquanto)
+        // Procura em: images/verao2026/verao (1).jpg ...
+        carregarFotos('galeria-verao-2026', 'verao2026/verao2026', 58);
 
     </script>
 </body>
